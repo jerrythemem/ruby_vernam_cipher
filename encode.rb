@@ -5,10 +5,12 @@ def input_check(byte_inp_data, input_data)
   # this check would convert every char from input to ASCII code and that code to binary
   if byte_inp_data == '0'
     char_inp_data = input_data.bytes
+    puts char_inp_data
     char_inp_data.each do |char|
       byte_inp_data += char.to_s(2)
     end
   end
+  byte_inp_data = byte_inp_data[1..byte_inp_data.length - 1]
   puts "Input data: #{byte_inp_data}"
   byte_inp_data
 end
