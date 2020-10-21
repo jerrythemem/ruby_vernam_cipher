@@ -28,7 +28,7 @@ def encode(byte_inp_data, input_data)
   puts 'Result:', result.to_s(2)
 
   puts 'Decode:'
-  puts(decode(result, mask))
+  # puts(decode(result, mask))
 end
 
 encode(byte_inp_data, input_data)
