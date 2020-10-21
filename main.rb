@@ -1,34 +1,25 @@
 # frozen_string_literal: true
 
-puts 'Enter data: '
-input_data = gets.chomp
-byte_inp_data = input_data.to_i.to_s(2) # Convert input data to binary
+require './encode'
+require './decode'
 
-def encode(byte_inp_data, input_data)
-  # Input check: if you enter char or string you will get 0 value from the upper statement, so
-  # this check would convert every char from input to ASCII code and that code to binary
-  if byte_inp_data == '0'
-    char_inp_data = input_data.bytes
-    char_inp_data.each do |char|
-      byte_inp_data += char.to_s(2)
-    end
-  end
-  puts 'Input data: ', byte_inp_data
-
-  # Mask creating
-  mask = ''
-  (0..byte_inp_data.length - 1).each do |_|
-    mask += rand.round.to_s
+loop do
+  puts 'You want to encode or decode? For exit type "exit" '
+  answer = gets.chomp
+  if answer == 'encode'
+    puts 'Enter data: '
+    input_data = gets.chomp
+    byte_inp_data = input_data.to_i.to_s(2) # Convert input data to binary
+    puts "Result: #{encode(byte_inp_data, input_data)}"
   end
 
-  puts 'Mask: ', mask
+  if answer == 'decode'
+    puts 'Enter result: '
+    input_result = gets.chomp
+    puts 'Enter mask: '
+    input_mask = gets.chomp
+    puts "Base: #{decode(input_result, input_mask)}"
+  end
 
-  # XOR operation to get result
-  result = byte_inp_data.to_i(2) ^ mask.to_i(2)
-  puts 'Result:', result.to_s(2)
-
-  puts 'Decode:'
-  # puts(decode(result, mask))
+  break if answer == 'exit'
 end
-
-encode(byte_inp_data, input_data)
