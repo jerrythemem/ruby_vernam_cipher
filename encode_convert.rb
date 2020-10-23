@@ -1,4 +1,4 @@
-def smart_convert(input_data)
+def smart_encode_convert(input_data)
   convert_temp = ''
   convert_data = ''
   (0..input_data.length - 1).each do |i|

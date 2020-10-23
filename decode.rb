@@ -1,18 +1,20 @@
 # frozen_string_literal: true
 
+require './decode_convert'
+
 def decode(result, mask)
   puts 'Base is string or number?'
   answer = gets.chomp
   if answer == 'string'
     base_byte = result.to_i(2) ^ mask.to_i(2)
-    decode_str(base_byte)
+    convert_str(base_byte.to_s(2))
   elsif answer == 'number'
     result.to_i(2) ^ mask.to_i(2)
   end
 end
 
-def decode_str(base_byte)
-  base_chr = base_byte.to_s(2).split ''
+def convert_str(base_byte)
+  base_chr = base_byte.split ''
   base = ''
   sample = ''
   (0..base_chr.length - 1).each do |i|
