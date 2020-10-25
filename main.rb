@@ -10,7 +10,6 @@ loop do
   if answer == 'encode'
     puts 'Enter data: '
     input_data = gets.chomp
-    # byte_inp_data = input_data.to_i.to_s(2) # Convert input data to binary
     byte_inp_data = smart_encode_convert(input_data)
     puts "Result: #{encode(byte_inp_data, input_data)}"
   end

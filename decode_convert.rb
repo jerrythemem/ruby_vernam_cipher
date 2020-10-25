@@ -1,1 +1,5 @@
-# Maybe sometimes i'll create smart decode convert...
+# frozen_string_literal: true
+
+def smart_decode_convert(base_byte)
+  0
+end

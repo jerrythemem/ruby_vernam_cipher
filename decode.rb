@@ -20,7 +20,7 @@ def convert_str(base_byte)
   (0..base_chr.length - 1).each do |i|
     sample += base_chr[i].to_s
     if sample.length == 7
-      base += sample.to_i(2).to_i.chr
+      base += sample.to_i(2).chr
       sample = ''
     end
   end
